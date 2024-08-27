@@ -79,28 +79,28 @@ apartment_number=12B&pet_name=Buddy&pet_breed=Labrador&walk_date=2024-08-28&walk
 
 **Пример ответа:**
 
-`json`
-
-```
-{
-  "id": 1,
-  "apartment_number": "12B",
-  "pet_name": "Buddy",
-  "pet_breed": "Labrador",
-  "walk_date": "2024-08-28",
-  "walk_time": "10:00:00",
-  "created_at": "2024-08-27 16:00:39"
-}
+```json
+[
+	{
+		"id": 1,
+		"apartment_number": "12B",
+		"pet_name": "Buddy",
+		"pet_breed": "Labrador",
+		"walk_date": "2024-08-28",
+		"walk_time": "10:00:00",
+		"created_at": "2024-08-27 16:00:39"
+	}
+]
 ```
 
 **Сообщение об ошибке, если время уже занято:**
 
-`json`
-
-```
-{
-  "detail": "This time slot is fully booked."
-}
+```json
+[
+	{
+		"detail": "This time slot is fully booked."
+	}
+]
 ```
 
 ## Как запустить проект
