@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block content %}
+<h2>Create a Walk Order</h2>
+<form action="/orders/" method="post">
+	<label for="apartment_number">Apartment Number:</label>
+	<input type="text" id="apartment_number" name="apartment_number" required />
+
+	<label for="pet_name">Pet Name:</label>
+	<input type="text" id="pet_name" name="pet_name" required />
+
+	<label for="pet_breed">Pet Breed:</label>
+	<input type="text" id="pet_breed" name="pet_breed" required />
+
+	<label for="walk_date">Walk Date:</label>
+	<input type="date" id="walk_date" name="walk_date" required />
+
+	<label for="walk_time">Walk Time:</label>
+	<input type="time" id="walk_time" name="walk_time" required />
+
+	<button type="submit">Create Order</button>
+</form>
+
+<h2>Check Orders</h2>
+<form action="/orders/" method="get">
+	<label for="date">Select Date:</label>
+	<input type="date" id="date" name="date" required />
+	<button type="submit">Check Orders</button>
+</form>
+
+{% if message %}
+<p>{{ message }}</p>
+{% endif %} {% if orders %}
+<h3>Orders for {{ selected_date }}:</h3>
+<ul>
+	{% for order in orders %}
+	<li>
+		Apartment {{ order.apartment_number }} - Pet: {{ order.pet_name }} ({{
+		order.pet_breed }}) at {{ order.walk_time }}
+	</li>
+	{% endfor %}
+</ul>
+{% endif %} {% endblock %}
